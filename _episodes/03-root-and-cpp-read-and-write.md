@@ -96,9 +96,9 @@ As in our last example, we first `include` some header files, both the standard 
 and some new ROOT-specific ones.
 
 ~~~
-#include<cstdio>
-#include<cstdlib>
-#include<iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
 
 #include "TROOT.h"
 #include "TTree.h"
@@ -238,9 +238,9 @@ The full `write_ROOT_file.cc` should now look like this
 > ~~~
 >
 >
-> #include<cstdio>
-> #include<cstdlib>
-> #include<iostream>
+> #include <cstdio>
+> #include <cstdlib>
+> #include <iostream>
 >
 > #include "TROOT.h"
 > #include "TTree.h"
@@ -252,12 +252,12 @@ The full `write_ROOT_file.cc` should now look like this
 >    // Create a ROOT file, f.
 >    // The first argument, "tree.root" is the name of the file.
 >    // The second argument, "recreate", will recreate the file, even if it already exists.
->    TFile f("tree.root","recreate");
+>    TFile f("tree.root", "recreate");
 >
 >    // A TTree object called t1.
 >    // The first argument is the name of the object as stored by ROOT.
 >    // The second argument is a short descriptor.
->    TTree t1("t1","A simple Tree with simple variables");
+>    TTree t1("t1", "A simple Tree with simple variables");
 >
 >    Float_t met; // Missing energy in the transverse direction.
 >
@@ -279,14 +279,14 @@ The full `write_ROOT_file.cc` should now look like this
 >    // First we define njets where the syntax is the same as before,
 >    // except we take care to identify this as an integer with the final
 >    // /I designation
->    t1.Branch("njets",&njets,"njets/I");
+>    t1.Branch("njets", &njets, "njets/I");
 >
 >    // We can now define the other variables, but we use a slightly different
 >    // syntax for the third argument to identify the variable that will be used
 >    // to count the number of entries per event
->    t1.Branch("pt",&pt,"pt[njets]/F");
->    t1.Branch("eta",&eta,"eta[njets]/F");
->    t1.Branch("phi",&phi,"phi[njets]/F");
+>    t1.Branch("pt", &pt, "pt[njets]/F");
+>    t1.Branch("eta", &eta, "eta[njets]/F");
+>    t1.Branch("phi", &phi, "phi[njets]/F");
 >
 >    Int_t nevents = 1000;
 >
@@ -425,9 +425,9 @@ to read in all the data and loop over this event-by-event.
 We'll start with the basic include statements and the main program.
 
 ~~~
-#include<cstdio>
-#include<cstdlib>
-#include<iostream>
+#include <cstdio>
+#include <cstdlib>
+#include <iostream>
 
 #include "TROOT.h"
 #include "TTree.h"
@@ -492,11 +492,11 @@ the variable name with an ampersand `&`.
 
 ~~~
    // Assign these variables to specific branch addresses
-   input_tree->SetBranchAddress("met",&met);
-   input_tree->SetBranchAddress("njets",&njets);
-   input_tree->SetBranchAddress("pt",&pt);
-   input_tree->SetBranchAddress("eta",&eta);
-   input_tree->SetBranchAddress("phi",&phi);
+   input_tree->SetBranchAddress("met", &met);
+   input_tree->SetBranchAddress("njets", &njets);
+   input_tree->SetBranchAddress("pt", &pt);
+   input_tree->SetBranchAddress("eta", &eta);
+   input_tree->SetBranchAddress("phi", &phi);
 
 ~~~
 {: .language-cpp}
@@ -513,11 +513,11 @@ with those values.
        input_tree->GetEntry(i);
 
        // Print the number of jets in this event
-       printf("%d\n",njets);
+       printf("%d\n", njets);
 
        // Print out the momentum for each jet in this event
-       for (Int_t j=0;j<njets;j++) {
-           printf("%f,%f,%f\n",pt[j], eta[j], phi[j]);
+       for (Int_t j=0; j<njets; j++) {
+           printf("%f, %f, %f\n", pt[j], eta[j], phi[j]);
        }
    }
 
@@ -528,9 +528,9 @@ The final version of your `read_ROOT_file.cc` should look like
 
 > ## Full source code file for `read_ROOT_file.cc`
 > ~~~
-> #include<cstdio>
-> #include<cstdlib>
-> #include<iostream>
+> #include <cstdio>
+> #include <cstdlib>
+> #include <iostream>
 >
 > #include "TROOT.h"
 > #include "TTree.h"
@@ -559,11 +559,11 @@ The final version of your `read_ROOT_file.cc` should look like
 >   Float_t phi[16];
 >
 >   // Assign these variables to specific branch addresses
->   input_tree->SetBranchAddress("met",&met);
->   input_tree->SetBranchAddress("njets",&njets);
->   input_tree->SetBranchAddress("pt",&pt);
->   input_tree->SetBranchAddress("eta",&eta);
->   input_tree->SetBranchAddress("phi",&phi);
+>   input_tree->SetBranchAddress("met", &met);
+>   input_tree->SetBranchAddress("njets", &njets);
+>   input_tree->SetBranchAddress("pt", &pt);
+>   input_tree->SetBranchAddress("eta", &eta);
+>   input_tree->SetBranchAddress("phi", &phi);
 >
 >   // Get the number of events in the file
 >   Int_t nevents = input_tree->GetEntries();
@@ -578,8 +578,8 @@ The final version of your `read_ROOT_file.cc` should look like
 >       printf("%d\n",njets);
 >
 >       // Print out the momentum for each jet in this event
->       for (Int_t j=0;j<njets;j++) {
->           printf("%f,%f,%f\n",pt[j], eta[j], phi[j]);
+>       for (Int_t j=0; j<njets; j++) {
+>           printf("%f, %f, %f\n", pt[j], eta[j], phi[j]);
 >       }
 >   }
 >
@@ -629,28 +629,28 @@ in mind your numbers will be different because of the random numbers that make u
 > ## Output of `read_ROOT_file`
 > ~~~
 > 1
-> 85.105431,5.602912,0.501085
+> 85.105431, 5.602912, 0.501085
 > 1
-> 18.954712,4.375443,-1.546321
+> 18.954712, 4.375443, -1.546321
 > 1
-> 39.784435,5.165263,2.592412
+> 39.784435, 5.165263, 2.592412
 > 3
-> 80.748314,0.387768,1.786288
-> 52.971573,3.939434,2.484405
-> 12.969198,3.115963,0.910543
+> 80.748314, 0.387768, 1.786288
+> 52.971573, 3.939434, 2.484405
+> 12.969198, 3.115963, 0.910543
 > 3
-> 93.604256,0.737315,-0.647755
-> 86.382034,3.493269,-1.573663
-> 68.181541,3.658454,-1.206015
+> 93.604256, 0.737315, -0.647755
+> 86.382034, 3.493269, -1.573663
+> 68.181541, 3.658454, -1.206015
 > 3
-> 96.990395,5.839735,3.046098
-> 79.096542,4.515290,0.039709
-> 83.234497,4.990829,2.586360
+> 96.990395, 5.839735, 3.046098
+> 79.096542, 4.515290, 0.039709
+> 83.234497, 4.990829, 2.586360
 > 4
-> 60.880657,1.233623,-2.837789
-> 25.723198,4.751074,2.355202
-> 20.403908,4.656353,-2.171340
-> 18.961079,1.425917,2.016828
+> 60.880657, 1.233623, -2.837789
+> 25.723198, 4.751074, 2.355202
+> 20.403908, 4.656353, -2.171340
+> 18.961079, 1.425917, 2.016828
 > ~~~
 > {: .output}
 {: .solution}
