@@ -12,21 +12,13 @@ keypoints:
 
 ## Setting up your CMSSW area
 
-If you completed the lessons on [virtual machines](https://cms-opendata-workshop.github.io/workshop2021-lesson-virtualmachine/) or [Docker](https://cms-opendata-workshop.github.io/workshop2021-lesson-docker) you should already have a working CMSSW area.
+If you completed the lessons on [Docker](https://cms-opendata-workshop.github.io/workshop2021-lesson-docker) you should already have a working CMSSW area.
 
-- If you are using the VM:
-
-  - turn on your virtual machine and go to the right shell according to the [validation instructions](https://cms-opendata-workshop.github.io/workshop2021-lesson-virtualmachine/04-validation/index.html#run-a-simple-demo-for-testing-and-validating):
-
-    ![Choose this shell](../assets/img/rightshell.png)
-
-- If you are using Docker:
-
-  - Start the container with:
-    ~~~
-    docker start -i <theNameOfyourContainer>
-    ~~~
-    {: .language-bash}
+Start the Docker container with:
+~~~
+docker start -i <theNameOfyourContainer>
+~~~
+{: .language-bash}
 
 Make sure you change directories to the `CMSSW_5_3_32/src` area; for instance, in Docker:
 
