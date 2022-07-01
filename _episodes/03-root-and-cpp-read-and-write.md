@@ -67,7 +67,7 @@ There are some great resources and tutorials out there for going further.
 * [The official ROOT Primer](https://root.cern/primer/). The recommended starting point to learn what ROOT can do.
 * [The official ROOT tutorials](https://root.cern/doc/master/group__Tutorials.html) This is a fairly comprehensive listing
 of well-commented examples, written in C++ *scripts* that are designed to be run from within the ROOT C-interpreter.
-* [ROOT tutorial for Summer Students (2015).](https://indico.cern.ch/event/395198/). With video recordings!
+* [ROOT tutorial (2022).](https://github.com/root-project/training/tree/master/SummerStudentCourse/2022). Tutorial from offical ROOT project for summer students.
 * [Efficient analysis with ROOT](https://cms-opendata-workshop.github.io/workshop-lesson-root/). This is a more complete,
 end-to-end tutorial on using ROOT in a CMS analysis workflow. It was created in 2020 by some of our CMS colleagues
 for a separate workshop, but much of the material is relevant for the Open Data effort. It takes about 2.5 hours
