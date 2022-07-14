@@ -1,7 +1,7 @@
 ---
 title: "Using uproot to open ROOT files"
-teaching: ???
-exercises: ???
+teaching: 20 min
+exercises: 20 min
 questions:
 - "How do I open a ROOT file with uproot?"
 - "How do I explore what is in the file?"
