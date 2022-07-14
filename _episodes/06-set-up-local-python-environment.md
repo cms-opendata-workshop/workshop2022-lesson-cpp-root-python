@@ -13,19 +13,23 @@ keypoints:
 - "You can do this *without* ever using the official ROOT libraries."
 ---
 
-In this section, we will set up a *local* python environment so that you can easily open
-and analyze ROOT files. This is useful for when you make use of the CMS open data tools to skim 
-some subset of the open data and then copy it to your local laptop, desktop, or perhaps an 
-HPC cluster at your home institution. 
-
-In other words, we will not be using Docker in this section. Time to install some new tools!
-
-## Python
-
 Python has become the primary analysis language for the majority of HEP experimentalists. It has a
 rich ecosystem that is constantly evolving. This is a good thing because it means that improvements
 and new tools are always being developed, but it can sometimes be a challenge to keep up with the 
 latest and greatest projects! :)
+
+In this section, we will set up an environment in which you can explore some more modern
+python tools. We'll show you two approaches: 
+
+* Install a *local* python environment on your laptop
+* Make use of a Docker container
+
+In either case, these tools will allow you to can easily open
+and analyze ROOT files. This is useful for when you make use of the CMS open data tools to skim 
+some subset of the open data and then copy it to your local laptop, desktop, or perhaps an 
+HPC cluster at your home institution. 
+
+# Installing python with Anaconda
 
 We recommend working with a newer python release, preferably python 3.7 or higher. Even if you have 
 a standard python installation (as comes with many Mac computers), we recommend installing
@@ -38,7 +42,7 @@ Follow the instructions to install the Anaconda version of python and make it yo
 need between to 600 MB to 1 GB free disk space and depending on the speed of your connection, it can
 take up to 15 minutes to download. 
 
-### Install the extra packages
+## Install the extra packages
 
 We now want to install some additional python libraries.
 
@@ -49,7 +53,7 @@ We now want to install some additional python libraries.
 
 `numpy` and `matplotlib` are most likely already installed when you installed your Anaconda distribution. But lets test this out!
 
-### Mac and Linux
+## Mac and Linux
 
 Open a terminal (Terminal on Mac) and type
 
@@ -80,7 +84,8 @@ import matplotlib.pylab as plt
 ~~~
 {: .language-python}
 
-If it all worked, you should see no output. If you get errors....................
+If it all worked, you should see no output. If you get errors, reach out to the organizers
+through Mattermost.
 
 Type `quit()` to exit and return to the shell. 
 
@@ -100,10 +105,10 @@ You should see a path that has `anaconda` in it.
 
 We can use `pip` (the Package Installer for Python) to install our new packages.
 
-
 ~~~
 pip install uproot
 pip install awkward
+pip install xrootd
 ~~~
 {: .language-bash}
 
@@ -120,13 +125,52 @@ If you don't get any errors then congratulations! You have installed the necessa
 perform some HEP analsis with your new python environment!
 
 
+# Making use of Docker
+
+If you would rather not install python from Anaconda, you can use Docker.
+If you completed the lessons on [Docker](https://cms-opendata-workshop.github.io/workshop2021-lesson-docker) 
+you should already have a working environment for ROOT. Specifically, you want to go to 
+[this episode](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html),
+and scroll down to **Python tools container**.
+
+As per the instructions on that page, create a local directory called `cms_open_data_root`. 
+If you are running Linux, you'd type
+
+~~~
+cd 
+mkdir cms_open_data_python
+~~~
+{: .language-bash}
+
+Start the Docker container following the commands on that webpage that are appropriate for your laptop. For example, if 
+you are running Linux, you'd run
+~~~
+docker run -it --name my_python -P -p 5901:5901 -p 6080:6080 -v ${HOME}/cms_open_data_python:/home/cmsusr/cms_open_data_python gitlab-registry.cern.ch/cms-cloud/python-vnc:latest
+~~~
+{: .language-bash}
+
+Make sure you change directories to the `cms_open_data_python` area; for instance, in Docker:
+
+~~~
+cd ~/cms_open_data_python
+~~~
+{: .language-bash}
+
+
+If you want to test out the installation, from within Docker you can launch and 
+interactive python session by typing `python` (in Docker) and then trying
+
+~~~
+import uproot
+import awkward as ak
+~~~
+{: .language-python}
+
+If you don't get any errors then congratulations! You have a working environment and you are ready to
+perform some HEP analsis with your new python environment!
 
 
 
-
-### Windows
-
-NEED TEXT HERE............
 
 
 

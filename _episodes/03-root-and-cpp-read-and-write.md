@@ -81,6 +81,20 @@ To store these datasets, ROOT uses an object called `TTree` (ROOT objects are of
 Each variable on the `TTree`, for example the transverse momentum of a muon, is stored in its own
 `TBranch`.
 
+> ## Source code for C++ lessons
+> There's a fair amount of C++ in this lesson and you'll get the most out of it if 
+> you work through it all and type it all out. 
+> 
+> However, it's easy to make a mistake, particularly with the `Makefile`. We've made
+> the the source code available in this 
+> [tarball](https://github.com/cms-opendata-workshop/workshop2022-lesson-cpp-root-python/blob/gh-pages/data/root_and_cpp_tutorial_source_code.tgz). Just follow the link and click on the **Download** button. 
+> On Linux or Mac, you can untar the file with
+> ~~~
+> tar -zxvf root_and_cpp_tutorial_source_code.tgz
+> ~~~
+> {: .language-bash}
+> It will create a directory called `root_and_cpp_tutorial_source_code` with the files in it. 
+{: .callout}
 
 ## Write to a file
 

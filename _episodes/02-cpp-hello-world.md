@@ -12,25 +12,31 @@ keypoints:
 
 ## Setting up your CMSSW area
 
-If you completed the lessons on [Docker](https://cms-opendata-workshop.github.io/workshop2021-lesson-docker) you should already have a working CMSSW area.
+If you completed the lessons on [Docker](https://cms-opendata-workshop.github.io/workshop2021-lesson-docker) 
+you should already have a working environment for ROOT. Specifically, you want to go to 
+[this episode](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html),
+and scroll down to **Download the docker images for ROOT and python tools and start container**.
 
-Start the Docker container with:
+As per the instructions on that page, create a local directory called `cms_open_data_root`. 
+If you are running Linux, you'd type
+
 ~~~
-docker start -i <theNameOfyourContainer>
+cd 
+mkdir cms_open_data_root
 ~~~
 {: .language-bash}
 
-Make sure you change directories to the `CMSSW_5_3_32/src` area; for instance, in Docker:
-
+Start the Docker container following the commands on that webpage that are appropriate for your laptop. For example, if 
+you are running Linux, you'd run
 ~~~
-cd /home/cmsusr/CMSSW_5_3_32/src
+docker run -it --name my_root -P -p 5901:5901 -p 6080:6080 -v ${HOME}/cms_open_data_root:/home/cmsusr/cms_open_data_root gitlab-registry.cern.ch/cms-cloud/root-vnc:latest
 ~~~
 {: .language-bash}
 
-Note that we are not really "installing" CMSSW but setting up an environment for it.  CMSSW was already installed. This is why **every time** you open a new shell you will have to issue the `cmsenv` command, which is just a script that runs to set some environmental variables for your working area:
+Make sure you change directories to the `cms_open_data_root` area; for instance, in Docker:
 
 ~~~
-cmsenv
+cd ~/cms_open_data_root
 ~~~
 {: .language-bash}
 
@@ -39,6 +45,11 @@ cmsenv
 
 Let's start with writing a simple `hello world` program in C. First we'll edit the
 *source* code with an editor of your choice.
+
+Note that if your favourite editor does not exist in the Docker container, you can still
+*edit* the file in a local terminal on your lapton and then *run* the file 
+in the Docker environment. This is because we mounted the `cms_open_data_root` directory
+on your local disk such that it is visible inside the Docker container.
 
 Let's create a new file called `hello_world.cc`, using your preferred editor. If
 you're using `nano`, you'll type

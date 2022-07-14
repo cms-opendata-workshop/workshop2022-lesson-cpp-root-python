@@ -144,26 +144,11 @@ The reason this happened is that `numpy` arrays can't deal with this type of
 and the second row might have 3 elements and the third row might have 0 elements
 and so on. For that, we need `awkward-array`. 
 
-# Download a ROOT file for use with this exercise
+# Access or download a ROOT file for use with this exercise
 
 We'll work with the same file as in the previous lesson. If you have jumped straight to
-this lesson, let's see how to download the file.
-If you are doing this lesson on a Mac or Linux computer, 
-you have the option to simply execute the following command in the terminal. 
-
-~~~
-curl http://opendata.cern.ch/record/12361/files/SMHiggsToZZTo4L.root --output SMHiggsToZZTo4L.root
-~~~
-{: .language-bash}
-
-Alternatively, you can follow [this link](http://opendata.cern.ch/record/12361) to the data record
-on the CERN Open Data Portal. If you scroll down to the bottom of the page and click 
-the **Download** button. 
-
-For the remainder of this tutorial you will want the file to be in the same directory/folder
-as your python code, whether you are using a Jupyter notebook or a simple python script. So make
-sure you move this file to that location after you have downloaded it. 
-
+this lesson, please go back and review how to access the file over the network 
+or by downloading it. 
 
 # Open the file
 
@@ -193,7 +178,11 @@ import awkward as ak
 Let's open the file and pull out some data.
 
 ~~~
-infile_name = 'SMHiggsToZZTo4L.root'
+# Depending on if you downloaded the file or not, you'll use either
+infile_name = 'root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/SMHiggsToZZTo4L.root'
+# or 
+#infile_name = 'SMHiggsToZZTo4L.root'
+# Uncomment the above line if you downloaded the file.
 
 infile = uproot.open(infile_name)
 

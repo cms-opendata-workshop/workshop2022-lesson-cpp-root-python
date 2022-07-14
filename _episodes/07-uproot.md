@@ -59,28 +59,10 @@ Hello world!
 
 We leave it to you to decide which approach you prefer.
 
-# Download a ROOT file for use with this exercise
 
-Let's grab a ROOT file to use for this lesson. If you are doing this lesson on a Mac or Linux computer, 
-you have the option to simply execute the following command in the terminal. 
+# Open a file
 
-~~~
-curl http://opendata.cern.ch/record/12361/files/SMHiggsToZZTo4L.root --output SMHiggsToZZTo4L.root
-~~~
-{: .language-bash}
-
-Alternatively, you can follow [this link](http://opendata.cern.ch/record/12361) to the data record
-on the CERN Open Data Portal. If you scroll down to the bottom of the page and click 
-the **Download** button. 
-
-For the remainder of this tutorial you will want the file to be in the same directory/folder
-as your python code, whether you are using a Jupyter notebook or a simple python script. So make
-sure you move this file to that location after you have downloaded it. 
-
-
-# Open the file
-
-Let's open this ROOT file! 
+Let's open a ROOT file! 
 If you're writing a python script, let's call it `open_root_file.py` and if you're using
 a Jupyter notebook, let's call it `open_root_file.ipynb`. 
 
@@ -101,17 +83,42 @@ import awkward as ak
 ~~~
 {: .language-python}
 
-Let's open the file!
+Let's open the file! We'll make use of `uproot`s use of [XRootD](https://xrootd.slac.stanford.edu/) to 
+read in the file *over the network*. This will save us from having to download the file.
 
 ~~~
-infile_name = 'SMHiggsToZZTo4L.root'
+infile_name = 'root://eospublic.cern.ch//eos/opendata/cms/derived-data/AOD2NanoAODOutreachTool/ForHiggsTo4Leptons/SMHiggsToZZTo4L.root'
 
 infile = uproot.open(infile_name)
 ~~~
 {: .language-python}
 
-Great! What is this? Let's add the following code
+> ## Download the file?
+> If too many people are trying to open the same file, it may be easier to download the file 
+> to your laptop.
+> If you are doing this lesson on a Mac or Linux computer, 
+you have the option to simply execute the following command in the terminal. 
+>
+> ~~~
+> curl http://opendata.cern.ch/record/12361/files/SMHiggsToZZTo4L.root --output SMHiggsToZZTo4L.root
+> ~~~
+> {: .language-bash}
+> Alternatively, you can follow [this link](http://opendata.cern.ch/record/12361) to the data record
+> on the CERN Open Data Portal. If you scroll down to the bottom of the page and click 
+> the **Download** button. 
+> 
+> For the remainder of this tutorial you will want the file to be in the same directory/folder
+> as your python code, whether you are using a Jupyter notebook or a simple python script. So make
+> sure you move this file to that location after you have downloaded it. 
+> 
+> To read in the file, you'll change one line to define the input file to be
+> ~~~
+> infile_name = 'SMHiggsToZZTo4L.root'
+> ~~~
+> {: .language-python}
+{: .callout}
 
+So you've opened the file with `uproot`. What is this `infile` object? Let's add the following code
 
 ~~~
 print(type(infile))
