@@ -87,24 +87,22 @@ Each variable on the `TTree`, for example the transverse momentum of a muon, is 
 > 
 > However, it's easy to make a mistake, particularly with the `Makefile`. We've made
 > the the source code available in this 
-> [tarball](https://github.com/cms-opendata-workshop/workshop2022-lesson-cpp-root-python/blob/gh-pages/data/root_and_cpp_tutorial_source_code.tgz). Just follow the link and click on the **Download** button. 
-> On Linux or Mac, you can untar the file with
+> [tarball](https://github.com/cms-opendata-workshop/workshop2022-lesson-cpp-root-python/blob/gh-pages/data/root_and_cpp_tutorial_source_code.tgz). Just follow the link and click on the **Download** button or download it directly with `wget` to you working directory `cms_open_data_root` in your local bash terminal with
+> ~~~
+> wget https://raw.githubusercontent.com/cms-opendata-workshop/workshop2022-lesson-cpp-root-python/gh-pages/data/root_and_cpp_tutorial_source_code.tgz
+> ~~~
+> {: .language-bash}
+> Untar the file with
 > ~~~
 > tar -zxvf root_and_cpp_tutorial_source_code.tgz
 > ~~~
 > {: .language-bash}
-> It will create a directory called `root_and_cpp_tutorial_source_code` with the files in it. 
+> It will create a directory called `root_and_cpp_tutorial_source_code` with the files in it.
 {: .callout}
 
 ## Write to a file
 
-Let's open a file using our preferred editor. We'll call this file `write_ROOT_file.cc`. If we're
-using `vi` as our editor, we would type
-
-~~~
-vi write_ROOT_file.cc
-~~~
-{: .language-bash}
+Let's create a file with name `write_ROOT_file.cc` using our preferred editor. We'll call this file `write_ROOT_file.cc` and it will be saved in the `cms_open_data_work` directory.
 
 As in our last example, we first `include` some header files, both the standard C++ ones
 and some new ROOT-specific ones.
@@ -353,7 +351,7 @@ all: write_ROOT_file
 
 write_ROOT_file: write_ROOT_file.cc
     $(CC) $(CFLAGS) -o write_ROOT_file.o write_ROOT_file.cc
-    $(CC) $(LDFLAGS) -o write_ROOT_file write_ROOT_file.o
+    $(CC) -o write_ROOT_file write_ROOT_file.o $(LDFLAGS)
 ~~~
 {: .language-makefile}
 
@@ -368,7 +366,7 @@ write_ROOT_file: write_ROOT_file.cc
 >
 > ~~~
 >    $(CC) $(CFLAGS) -o write_ROOT_file.o write_ROOT_file.cc
->    $(CC) $(LDFLAGS) -o write_ROOT_file write_ROOT_file.o
+>    $(CC) -o write_ROOT_file write_ROOT_file.o $(LDFLAGS)
 > ~~~
 > {: .language-makefile}
 > If your Makefile has spaces at those points instead of a tab, `make` will not work for you
@@ -617,11 +615,11 @@ all: write_ROOT_file read_ROOT_file
 
 write_ROOT_file: write_ROOT_file.cc
     $(CC) $(CFLAGS) -o write_ROOT_file.o write_ROOT_file.cc
-    $(CC) $(LDFLAGS) -o write_ROOT_file write_ROOT_file.o
+    $(CC) -o write_ROOT_file write_ROOT_file.o $(LDFLAGS)
 
 read_ROOT_file: read_ROOT_file.cc
     $(CC) $(CFLAGS) -o read_ROOT_file.o read_ROOT_file.cc
-    $(CC) $(LDFLAGS) -o read_ROOT_file read_ROOT_file.o
+    $(CC) -o read_ROOT_file read_ROOT_file.o $(LDFLAGS)
 
 clean:
     rm -f ./*~ ./*.o ./write_ROOT_file
