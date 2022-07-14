@@ -12,58 +12,34 @@ keypoints:
 
 ## Setting up your CMSSW area
 
-If you completed the lessons on [Docker](https://cms-opendata-workshop.github.io/workshop2021-lesson-docker) 
-you should already have a working environment for ROOT. Specifically, you want to go to 
-[this episode](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html),
-and scroll down to **Download the docker images for ROOT and python tools and start container**.
+If you completed the [Docker pre-exercises](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/) 
+you should already have worked through 
+[this episode](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html), under **Download the docker images for ROOT and python tools and start container**, and you will have
 
-As per the instructions on that page, create a local directory called `cms_open_data_root`. 
-If you are running Linux, you'd type
+- a working directory `cms_open_data_root` on your local computer
+- a docker container with name `my_root` created with the working directory `cms_open_data_root` mounted into the `/code` directory of the container.
+
+Start your ROOT container with
 
 ~~~
-cd 
-mkdir cms_open_data_root
+docker start -i my_root
 ~~~
 {: .language-bash}
 
-Start the Docker container following the commands on that webpage that are appropriate for your laptop. For example, if 
-you are running Linux, you'd run
-~~~
-docker run -it --name my_root -P -p 5901:5901 -p 6080:6080 -v ${HOME}/cms_open_data_root:/home/cmsusr/cms_open_data_root gitlab-registry.cern.ch/cms-cloud/root-vnc:latest
-~~~
-{: .language-bash}
-
-Make sure you change directories to the `cms_open_data_root` area; for instance, in Docker:
-
-~~~
-cd ~/cms_open_data_root
-~~~
-{: .language-bash}
+In the container, you will be in the `/code` directory and it shares the files with your local `cms_open_data_root` directory.
 
 
 ## Your first C/C++ program
 
 Let's start with writing a simple `hello world` program in C. First we'll edit the
-*source* code with an editor of your choice.
+*source* code with an editor of your choice. 
 
-Note that if your favourite editor does not exist in the Docker container, you can still
-*edit* the file in a local terminal on your lapton and then *run* the file 
+Note that you will
+*edit* the file in a local terminal on your computer and then *run* the file 
 in the Docker environment. This is because we mounted the `cms_open_data_root` directory
 on your local disk such that it is visible inside the Docker container.
 
-Let's create a new file called `hello_world.cc`, using your preferred editor. If
-you're using `nano`, you'll type
-
-~~~
-nano hello_world.cc
-~~~
-{: .language-bash}
-
-or if you're using `vi`, you'll type
-~~~
-vi hello_world.cc
-~~~
-{: .language-bash}
+Let's create a new file called `hello_world.cc` in the `cms_open_data_root` directory, using your preferred editor. 
 
 The first thing we need to do, is `include` some standard libraries. These libraries
 allow us to access the C and C++ commands to print to the screen (`stdout` and `stderr`) as
@@ -154,8 +130,7 @@ OK! Your full `hello_world.cc` should look like this.
 
 This won't do anything yet though! We need to *compile* the code, which means turning this into
 [*machine code*](https://en.wikipedia.org/wiki/Machine_code). To do this, we'll use the GNU C++ compiler, `g++`.
-Once you have saved your file and exited out of your editor, you can type this in your shell (make sure you're in
-        the same directory as your `hello_world.cc` source code file!).
+Once you have saved your file, go to the container shell, make sure (e.g. with `ls -l`) that you your file is in the current directory and type this in your shell.
 
 ~~~
 g++ hello_world.cc -o hello_world
