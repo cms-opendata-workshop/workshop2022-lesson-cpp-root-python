@@ -169,6 +169,7 @@ them as you go to see the output.*
 ~~~
 import numpy as np
 import matplotlib.pylab as plt
+import time
 
 import uproot
 import awkward as ak
