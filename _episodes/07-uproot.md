@@ -38,7 +38,9 @@ familiarity with it.
   ~~~
   jupyter-lab --ip=0.0.0.0 --no-browser
   ~~~
-  {: .language-bash} and open the link given in the message on your browser. Choose the icon under "Notebook". 
+  {: .language-bash} 
+  
+  and open the link given in the message on your browser. Choose the icon under "Notebook". 
 
 * Python scripts. In this approach, you edit the equivalent of a text file and then pass that text
 file into a python interpreter. For example, if you edited a file called `hello_world.py` such that
