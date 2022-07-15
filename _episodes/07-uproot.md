@@ -34,6 +34,13 @@ code in one cell if you prefer. There are many, many tutorials out there on usin
 and if you chose to use Jupyter as your editing/executing environment that you have developed some
 familiarity with it. 
 
+  * In the `my_python` container, you can start `jupyter-lab` with
+  ~~~
+  jupyter-lab --ip=0.0.0.0 --no-browser
+  ~~~
+  {: .language-bash}
+  and open the link given in the message on your browser. Choose the icon under "Notebook". 
+
 * Python scripts. In this approach, you edit the equivalent of a text file and then pass that text
 file into a python interpreter. For example, if you edited a file called `hello_world.py` such that
 it contained
@@ -64,7 +71,7 @@ We leave it to you to decide which approach you prefer.
 
 Let's open a ROOT file! 
 If you're writing a python script, let's call it `open_root_file.py` and if you're using
-a Jupyter notebook, let's call it `open_root_file.ipynb`. 
+a Jupyter notebook, let's call it `open_root_file.ipynb`. If you are working in the container, you will open and *edit* the python script on your local computer and *run* it in the container, or you will open a notebook on your jupyter-lab window in the browser.
 
 First we will import the `uproot` library, as well as some other standard
 libraries. These can be the first lines of your python script or the first cell of your Jupyter notebook.
@@ -96,8 +103,7 @@ infile = uproot.open(infile_name)
 > ## Download the file?
 > If too many people are trying to open the same file, it may be easier to download the file 
 > to your laptop.
-> If you are doing this lesson on a Mac or Linux computer, 
-you have the option to simply execute the following command in the terminal. 
+> You can execute the following command in the bash terminal. 
 >
 > ~~~
 > curl http://opendata.cern.ch/record/12361/files/SMHiggsToZZTo4L.root --output SMHiggsToZZTo4L.root
