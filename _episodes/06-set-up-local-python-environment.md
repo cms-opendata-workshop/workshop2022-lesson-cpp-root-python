@@ -53,9 +53,9 @@ We now want to install some additional python libraries.
 
 `numpy` and `matplotlib` are most likely already installed when you installed your Anaconda distribution. But lets test this out!
 
-## Mac and Linux
+## Test on your local bash terminal
 
-Open a terminal (Terminal on Mac) and type
+Open a bash terminal (native Linux shell, Terminal on Mac, or WSL2 Linux bash shell) and type
 
 ~~~
 python
@@ -122,40 +122,27 @@ import awkward as ak
 {: .language-python}
 
 If you don't get any errors then congratulations! You have installed the necessary libraries and are ready to
-perform some HEP analsis with your new python environment!
+perform some HEP analysis with your new python environment!
 
 
 # Making use of Docker
 
-If you would rather not install python from Anaconda, you can use Docker.
-If you completed the lessons on [Docker](https://cms-opendata-workshop.github.io/workshop2021-lesson-docker) 
-you should already have a working environment for ROOT. Specifically, you want to go to 
-[this episode](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html),
-and scroll down to **Python tools container**.
+If you would rather not install python from Anaconda, or keep your existing python tools separate from the CMS open data work, you can use the python Docker container.
+If you completed the [Docker pre-exercises](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/) 
+you should already have worked through 
+[this episode](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/03-docker-for-cms-opendata/index.html), under **Download the docker images for ROOT and python tools and start container**, and you will have
 
-As per the instructions on that page, create a local directory called `cms_open_data_root`. 
-If you are running Linux, you'd type
+- a working directory `cms_open_data_python` on your local computer
+- a docker container with name `my_python` created with the working directory `cms_open_data_python` mounted into the `/code` directory of the container.
+
+Start your python container with
 
 ~~~
-cd 
-mkdir cms_open_data_python
-~~~
-{: .language-bash}
-
-Start the Docker container following the commands on that webpage that are appropriate for your laptop. For example, if 
-you are running Linux, you'd run
-~~~
-docker run -it --name my_python -P -p 5901:5901 -p 6080:6080 -v ${HOME}/cms_open_data_python:/home/cmsusr/cms_open_data_python gitlab-registry.cern.ch/cms-cloud/python-vnc:latest
+docker start -i my_python
 ~~~
 {: .language-bash}
 
-Make sure you change directories to the `cms_open_data_python` area; for instance, in Docker:
-
-~~~
-cd ~/cms_open_data_python
-~~~
-{: .language-bash}
-
+In the container, you will be in the `/code` directory and it shares the files with your local `cms_open_data_python` directory.
 
 If you want to test out the installation, from within Docker you can launch and 
 interactive python session by typing `python` (in Docker) and then trying
@@ -167,11 +154,7 @@ import awkward as ak
 {: .language-python}
 
 If you don't get any errors then congratulations! You have a working environment and you are ready to
-perform some HEP analsis with your new python environment!
-
-
-
-
+perform some HEP analysis with your new python environment!
 
 
 {% include links.md %}
