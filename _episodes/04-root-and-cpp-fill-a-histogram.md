@@ -25,7 +25,7 @@ cp read_ROOT_file.cc fill_histogram.cc
 ~~~
 {: .language-bash}
 
-Into this file, we'll add some lines at some key spots. For now, we'll go through those lines
+Into this file, we'll add some lines at some key spots. Again, use your favourite editor on your local computer. For now, we'll go through those lines
 of code individually, and then show you the completed file at the end to see where they went.
 
 First we need to include the header file for the ROOT [TH1F](https://root.cern.ch/doc/master/classTH1F.html) class.
@@ -177,15 +177,15 @@ all: write_ROOT_file read_ROOT_file fill_histogram
 
 write_ROOT_file: write_ROOT_file.cc
     $(CC) $(CFLAGS) -o write_ROOT_file.o write_ROOT_file.cc
-    $(CC) $(LDFLAGS) -o write_ROOT_file write_ROOT_file.o
+    $(CC) -o write_ROOT_file write_ROOT_file.o $(LDFLAGS)
 
 read_ROOT_file: read_ROOT_file.cc
     $(CC) $(CFLAGS) -o read_ROOT_file.o read_ROOT_file.cc
-    $(CC) $(LDFLAGS) -o read_ROOT_file read_ROOT_file.o
+    $(CC) -o read_ROOT_file read_ROOT_file.o $(LDFLAGS)
 
 fill_histogram: fill_histogram.cc
     $(CC) $(CFLAGS) -o fill_histogram.o fill_histogram.cc
-    $(CC) $(LDFLAGS) -o fill_histogram fill_histogram.o
+    $(CC) -o fill_histogram fill_histogram.o $(LDFLAGS)
 
 clean:
     rm -f ./*~ ./*.o ./write_ROOT_file
@@ -194,7 +194,7 @@ clean:
 ~~~
 {: .language-makefile}
 
-And then compile and run it!
+And then compile and run it, remember to do it in the container!
 
 ~~~
 make fill_histogram
@@ -204,6 +204,15 @@ make fill_histogram
 
 The output on the screen should not look different. However, if you list the contents of the directory,
 you'll see a new file, `output.root`!
+
+If you are using a container with VNC, now it is time to start the graphics window with
+
+~~~
+start_vnc
+~~~
+{: .language-bash}
+
+and connect to it with the default password `cms.cern`.
 
 To inspect this new ROOT file, we'll launch CINT for the first time and create a
 [`TBrowser` object](https://root.cern.ch/doc/master/classTBrowser.html).
@@ -243,6 +252,8 @@ should see the following plot appear!
 > ![](../assets/img/tbrowser_screenshot_01.png)
 {: .callout}
 
+Quit ROOT by choosing the “Quit Root” option from Browser menu of the TBrowser window or by typing `.q` in the ROOT prompt.
+
 > ## Work assignment: investigating data in ROOT files
 >
 > In the previous episode you generated a file called `tree.root`.  It has some variables which were stored in a TTree called `t1`.  Let's explore the variables contained in this tree by using one of the methods available for TTree objects.  You can find out more about these methods directly from the [ROOT TTree class documentation](https://root.cern.ch/doc/master/classTTree.html).
@@ -264,6 +275,7 @@ should see the following plot appear!
 > {: .code}
 >
 > Please copy the output this statement generates and paste it into the corresponding section in our [assignment form](https://forms.gle/ZwrCAC4MMRPyjUD36); remember you must sign in and <strong style="color: red;">click on the submit button</strong> in order to save your work.  You can go back to edit the form at any time.
+> Then, quit ROOT.
 {: .challenge}
 
 ## Using a ROOT script
@@ -400,6 +412,7 @@ You'll be popped into the CINT environment and you should see the following plot
 > ![](../assets/img/h_pt.png)
 {: .callout}
 
+Exit from the container. If you are using a container with VNC, first stop VNC with `stop_vnc`.
 
 
 {% include links.md %}
