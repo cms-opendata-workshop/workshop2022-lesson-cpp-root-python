@@ -10,7 +10,7 @@ title: Setup
 > check out the [Software Carpentry lesson on the Unix shell](https://swcarpentry.github.io/shell-novice/).
 {: .prereq}
 
-> Finally, please remember that you will find simple <strong style="color: red;">work assignments that must be submitted</strong> using our [assignment form](https://forms.gle/DDboG1MCcSNRBRHFA); you have to sign in and <strong style="color: red;">click on the submit button</strong> in order to save your work.  You can go back to edit the form at any time.
+> Finally, please remember that you will find simple <strong style="color: red;">work assignments that must be submitted</strong> using our [assignment form]( https://forms.gle/7YYRv6ZCTfRYiocr7); you have to sign in and <strong style="color: red;">click on the submit button</strong> in order to save your work.  You can go back to edit the form at any time.
 {: .testimonial}
 
 
