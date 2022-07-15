@@ -365,6 +365,7 @@ First the slow but explicit way.
 > plt.figure()
 > plt.hist(masses,bins=140,range=(80,150))
 > plt.xlabel(r'4-muon invariant mass (GeV/c$^2$',fontsize=18)
+> plt.show()
 > ~~~
 > {: .language-python}
 {: .solution}
@@ -411,6 +412,7 @@ how much faster using the built-in awkward functions can be.
 > 
 > plt.hist(ak.flatten(mass_fast[qtot==0]), bins=140,range=(80,150));
 > plt.xlabel(r'4-muon invariant mass (GeV/c$^2$',fontsize=18)
+> plt.show()
 > ~~~
 > {: .language-python}
 {: .solution}
