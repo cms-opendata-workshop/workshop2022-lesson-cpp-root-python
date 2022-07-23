@@ -374,7 +374,7 @@ write_ROOT_file: write_ROOT_file.cc
 {: .callout}
 
 
-You can now compile and run your compiled program from the command line!
+You can now compile and run your compiled program from the command line of your `my_root` container shell!
 
 ~~~
 make write_ROOT_file
@@ -627,7 +627,7 @@ clean:
 ~~~
 {: language-makefile}
 
-We can now compile and run the code!
+We can now compile and run the code in your `my_root` container shell!
 
 ~~~
 make read_ROOT_file
