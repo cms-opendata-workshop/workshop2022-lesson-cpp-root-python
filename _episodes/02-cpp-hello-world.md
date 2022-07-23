@@ -10,7 +10,7 @@ keypoints:
 - "We must compile our C++ code before we can execute it."
 ---
 
-## Setting up your CMSSW area
+## Setting up your working area
 
 If you completed the [Docker pre-exercises](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/) 
 you should already have worked through 
