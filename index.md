@@ -26,8 +26,8 @@ You should definitely take time to go through this exercise before
 participating in the workshop.
 
 If you run into problems with any of these steps, please reach out to the organizers
-through the dedicated [Mattermost channel][mattermost].
-
+through the dedicated [Mattermost channel for this lesson](https://mattermost.web.cern.ch/cmsodws2022/channels/c-and-python-pre-exercise).
+General questions about the workshop as a whole can be posted on the [Mattermost channel for the workshop][mattermost].
 
 <!-- this is an html comment -->
 
