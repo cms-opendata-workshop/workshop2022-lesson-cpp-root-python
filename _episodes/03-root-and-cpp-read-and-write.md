@@ -102,7 +102,7 @@ Each variable on the `TTree`, for example the transverse momentum of a muon, is 
 
 ## Write to a file
 
-Let's create a file with name `write_ROOT_file.cc` using our preferred editor. We'll call this file `write_ROOT_file.cc` and it will be saved in the `cms_open_data_work` directory.
+Let's create a file with name `write_ROOT_file.cc` using our preferred editor. We'll call this file `write_ROOT_file.cc` and it will be saved in the `cms_open_data_root` directory.
 
 As in our last example, we first `include` some header files, both the standard C++ ones
 and some new ROOT-specific ones.
