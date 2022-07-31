@@ -1,7 +1,7 @@
 ---
 title: "Installing python and the analysis tools locally"
 teaching: 5
-exercises: 30
+exercises: 20
 questions:
 - "How do I set up my local python environment?"
 - "How do I install uproot and awkward?"
@@ -50,6 +50,8 @@ We now want to install some additional python libraries.
 * [matplotlib](https://matplotlib.org/), for most people this is the standard plotting library.
 * [uproot](https://uproot.readthedocs.io/en/latest/index.html), a more recent library to efficiently open ROOT files, effectively freeing you from needing to install the entire ROOT package.
 * [awkward](https://awkward-array.readthedocs.io/en/latest/), also a more recent library that lets us perform fast, efficient calculations on the *jagged* arrays that we so often encounter in HEP datasets. More on this later...
+* [xrootd](https://xrootd.slac.stanford.edu/), a library that allows ROOT and `uproot` to access files over the web, provided
+they are refereced in a particular way. 
 
 `numpy` and `matplotlib` are most likely already installed when you installed your Anaconda distribution. But lets test this out!
 
@@ -123,6 +125,47 @@ import awkward as ak
 
 If you don't get any errors then congratulations! You have installed the necessary libraries and are ready to
 perform some HEP analysis with your new python environment!
+
+## Creating a python virtual environment
+
+If you are finding that using `pip` to install new libraries is either taking a long time
+or failing, it may be easier to use the Anaconda tools to install a 
+[*virtual environment*](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+This creates an environment with a specific version of python with very specific libraries installed.
+By creating this environment all at once, you can often avoid some of the conflicts that cause `pip` to take 
+a long time or fail. 
+
+If you have installed Anaconda, you should be able to open a terminal or on Windows, the Anaconda command line
+tool. We'll be making use of the `conda` tool, provided by Anaconda. You can make sure it's there by typing
+
+~~~
+conda --version
+~~~
+{: .language-bash}
+
+~~~
+conda 4.12.0
+~~~
+{: .output}
+
+You might not get that exact version, but that's OK, so long as you get some sort of version. 
+
+You can now use `conda` to create a virtual environment with the modern python tools we'll be using
+for this pre-exercise and later lessons. We'll call this environment `pyhep`. 
+
+~~~
+conda create --name pyhep root matplotlib xrootd awkward uproot numpy jupyter-notebook
+~~~
+{: .language-bash}
+
+It might take a while (10-20 minutes). Once it's created, you can then type
+
+~~~
+conda activate pyhep
+~~~
+{: language-bash}
+
+and when you use `python` or `jupyter` you'll be able to use all these libraries. 
 
 
 # Making use of Docker

@@ -1,7 +1,7 @@
 ---
 title: "Using ROOT with C++ to fill a histogram"
-teaching: 20
-exercises: 40
+teaching: 10
+exercises: 20
 questions:
 - "Is there more than reading and writing files that can be done with ROOT?"
 - "How do I run a ROOT script?"

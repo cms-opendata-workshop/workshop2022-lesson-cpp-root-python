@@ -1,7 +1,7 @@
 ---
 title: "Using awkward arrays to analyze HEP data"
-teaching: 20 min
-exercises: 20 min
+teaching: 10 min
+exercises: 10 min
 questions:
 - "What are awkward arrays?"
 - "How do I work with awkward arrays?"

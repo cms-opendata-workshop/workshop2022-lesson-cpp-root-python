@@ -1,7 +1,7 @@
 ---
 title: "Using ROOT with C++ to write and read a file"
-teaching: 20
-exercises: 40
+teaching: 15
+exercises: 20
 questions:
 - "Why do I need to use ROOT?"
 - "How do I use ROOT with C++?"
