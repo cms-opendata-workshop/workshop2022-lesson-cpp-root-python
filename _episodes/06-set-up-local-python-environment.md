@@ -22,14 +22,14 @@ In this section, we will set up an environment in which you can explore some mor
 python tools. We'll show you two approaches: 
 
 * Make use of a Docker container (recommended)
-* * Install a *local* python environment on your laptop
+* Install a *local* python environment on your laptop
 
 In either case, these tools will allow you to can easily open
 and analyze ROOT files. This is useful for when you make use of the CMS open data tools to skim 
 some subset of the open data and then copy it to your local laptop, desktop, or perhaps an 
 HPC cluster at your home institution. 
 
-# Making use of Docker
+# Option 1: Making use of Docker
 
 If you would rather not install python from Anaconda, or keep your existing python tools separate from the CMS open data work, you can use the python Docker container.
 If you completed the [Docker pre-exercises](https://cms-opendata-workshop.github.io/workshop2022-lesson-docker/) 
@@ -60,7 +60,7 @@ import awkward as ak
 If you don't get any errors then congratulations! You have a working environment and you are ready to
 perform some HEP analysis with your new python environment!
 
-# Installing python with Anaconda
+# Option 2: Installing python with Anaconda
 
 We recommend working with a newer python release, preferably python 3.7 or higher. Even if you have 
 a standard python installation (as comes with many Mac computers), we recommend installing
@@ -86,7 +86,7 @@ they are refereced in a particular way.
 
 `numpy` and `matplotlib` are most likely already installed when you installed your Anaconda distribution. But lets test this out!
 
-## Test on your local bash terminal
+### Test on your local bash terminal
 
 Open a bash terminal (native Linux shell, Terminal on Mac, or WSL2 Linux bash shell) and type
 
@@ -122,45 +122,9 @@ through Mattermost.
 
 Type `quit()` to exit and return to the shell. 
 
-Now that we've exited python and are in the shell, type
+### Creating a python virtual environment
 
-~~~
-which pip
-~~~
-{: .language-bash}
-
-You should see a path that has `anaconda` in it. 
-
-~~~
-/opt/anaconda3/bin/pip
-~~~
-{: .output}
-
-We can use `pip` (the Package Installer for Python) to install our new packages.
-
-~~~
-pip install uproot
-pip install awkward
-pip install xrootd
-~~~
-{: .language-bash}
-
-You should see a significant amount of output as your laptop downloads and installes these libraries. 
-If you don't get errors, you can go back into the python shell (typing `python` in your terminal) and then trying
-
-~~~
-import uproot
-import awkward as ak
-~~~
-{: .language-python}
-
-If you don't get any errors then congratulations! You have installed the necessary libraries and are ready to
-perform some HEP analysis with your new python environment!
-
-## Creating a python virtual environment
-
-If you are finding that using `pip` to install new libraries is either taking a long time
-or failing, it may be easier to use the Anaconda tools to install a 
+We will now use the Anaconda tools to install a 
 [*virtual environment*](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
 This creates an environment with a specific version of python with very specific libraries installed.
 By creating this environment all at once, you can often avoid some of the conflicts that cause `pip` to take 
@@ -194,10 +158,26 @@ It might take a while (10-20 minutes). Once it's created, you can then type
 ~~~
 conda activate pyhep
 ~~~
-{: language-bash}
+{: .language-bash}
 
-and when you use `python` or `jupyter` you'll be able to use all these libraries. 
+Now go into the python interpreter by typing `python` and then try typing the following in that interpreter.
+
+~~~
+import uproot
+import awkward as ak
+~~~
+{: .language-python}
+
+If you don't get any errors then congratulations! You have installed the necessary libraries and are ready to
+perform some HEP analysis with your new python environment!
+
+and when you use `python` or `jupyter` you'll be able to use all these libraries. Just make sure
+you *first* activate this virtual environment with 
+
+~~~
+conda activate pyhep
+~~~
+{: .language-bash}
 
 
 {% include links.md %}
-
