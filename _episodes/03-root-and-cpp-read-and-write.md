@@ -424,6 +424,10 @@ make write_ROOT_file
 Your numbers may be slightly different because of the random numbers that
 are generated.
 
+After you've run this, you can look in this directory (`ls -ltr`) and see
+if you have a new file called `tree.root`. This is the output
+of what you just ran. 
+
 Huzzah! You've successfully written your first ROOT file!
 
 > ## Will I have to `make` my Open Data analysis code?
@@ -439,8 +443,11 @@ Huzzah! You've successfully written your first ROOT file!
 
 ## Read a ROOT file
 
-Let's try to read this file in now. We won't do much with but we'll try to understand the process necessary
+Let's try to read the `tree.root` file now. We won't do much with but we'll try to understand the process necessary
 to read in all the data and loop over this event-by-event.
+
+You will now edit (with your favourite editor) a file called `read_ROOT_file.cc`. In this file, 
+    you'll add the following code. 
 
 We'll start with the basic include statements and the main program.
 
