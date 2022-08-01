@@ -149,7 +149,7 @@ You can now use `conda` to create a virtual environment with the modern python t
 for this pre-exercise and later lessons. We'll call this environment `pyhep`. 
 
 ~~~
-conda create --name pyhep root matplotlib xrootd awkward uproot numpy jupyter-notebook
+conda create --name pyhep -c conda-forge root matplotlib xrootd awkward uproot numpy jupyter
 ~~~
 {: .language-bash}
 
