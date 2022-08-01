@@ -74,6 +74,14 @@ for a separate workshop, but much of the material is relevant for the Open Data 
 to complete the tutorial.
 * [ROOT tutorial from Nevis Lab (Columbia Univ.)](https://www.nevis.columbia.edu/~seligman/root-class/). Very complete and always up-to-date tutorial from our friends at Columbia.
 
+> ## Be in Docker!
+> For this episode, you'll still be running your code from the `my_root` docker container
+> that you launched in the previous episode.
+>
+> As you edit the files though, you may want to do the editing from your *local* environment, 
+> so that you have access to your preferred editors.
+{: .callout}
+
 ## ROOT terminology
 
 To store these datasets, ROOT uses an object called `TTree` (ROOT objects are often prefixed by a `T`).
