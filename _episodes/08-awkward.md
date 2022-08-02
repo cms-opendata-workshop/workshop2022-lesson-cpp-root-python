@@ -206,7 +206,6 @@ print(pt.array())
 print()
 
 print(len(pt.array()))
-print(x)
 print()
 
 for i in range(5):
